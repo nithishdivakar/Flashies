@@ -1,0 +1,44 @@
+\begin{slide}[Boltzman Machines]
+Network of symetrically coupled stocastic binary units. 
+Energy of state $\{v,h\}$ is defined as:
+\begin{shaded}
+\begin{align}
+E(v,h;\theta) &= -{1 \over 2} v^TLv -{1\over 2} h^TJh - v^TWh
+\end{align}
+\end{shaded}
+where $\theta = \{W,L,J\}$ represents model parameters. diagonal terms of $L$ and $J$ are set to 0. \footnotetext{bias terms have been omitted for clarity}
+\end{slide}
+
+\begin{slide}
+Probability that model assigns a visible vector $v$ is
+\begin{shaded}
+\begin{align}
+p(v;\theta) &= {p^*(v;\theta) \over Z(\theta)} \\&= {1 \over Z(\theta)} \sum_n\exp(-E(v,h;\theta))&&\label{eqn:2}\\
+&Z(\theta) = \sum_v\sum_h\exp(-E(v,h;\theta))
+\end{align}
+\end{shaded}
+\end{slide}
+
+\begin{slide}
+The conditional distribution over hidden and visible units are given by 
+\begin{align*}
+p(h_j=1|v,h_{-j}) &=\sigma\left(\sum_{i=1}^{D}W_{ij}v_i+\sum_{m=1\backslash j}^P J_{jm}h_j\right)\\
+p(v_i=1|h,v_{-i}) &=\sigma\left(\sum_{j=1}^{P}W_{ij}h_j+\sum_{k=1\backslash i}^D L_{ik}v_j\right)
+\end{align*}
+\end{slide}
+
+
+\begin{slide}
+Parameter updates that are needed to perform gradient ascent in the log-likelihood from Eq.~\ref{eqn:2}:
+\begin{align*}
+\grad W &= \alpha(\mathbb{E}_{P_{data}}[vh^T]-\mathbb{E}_{P_{model}}[vh^T])\\
+\grad L &= \alpha(\mathbb{E}_{P_{data}}[vv^T]-\mathbb{E}_{P_{model}}[vv^T])\\
+\grad J &= \alpha(\mathbb{E}_{P_{data}}[hh^T]-\mathbb{E}_{P_{model}}[hh^T])\\
+\end{align*}
+$\mathbb{E}_{P_{data}}[\cdot]$ represents expectation w.r.to complete data distribution $P_{data}(h,v;\theta)= p(h|v;\theta)P_{data}(v)$, with $P_{data}(v) = {1 \over N}\sum_n\delta(v-v_n)$ representing the empirical distribution, and $\mathbb{E}_{P_{model}}$ is an expectation w.r.to. distribution defined by the model.
+\begin{shaded}
+\centering{}Reduce the expectation of the model distribution and the data distribution
+\end{shaded}
+\end{slide}
+
+
