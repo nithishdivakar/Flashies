@@ -1,0 +1,15 @@
+\section{Inclusion Exclusion}
+\begin{slide}[Inclusion exclusion]
+\begin{align*}
+	\huge
+	%P\left(\bigcup_{i=1}^{n} A_n\right) =& \sum_{i=1}{n}P(A_i)\\
+	%&-\sum_{1\leq i<j\leq n}P(A_i\cap A_j)\\
+	%&+\sum_{1\leq i<j<k\leq n}P(A_i\cap A_j \cap A_k)\\
+	%&\vdots\\
+	%&+(-1)^{n+1}P(A_1\cap A_2\cap \cdots \cap A_n)\\
+	\mathbf{P\left(\bigcup_{i=1}^{n} A_i\right)} =&\mathbf{\sum_{\phi\neq J\subseteq\{1,2,\ldots,n\}} (-1)^{|J|-1}P\left(\bigcup_{j\in J}A_j\right)}\\[20pt]
+	P(A\cup B\cup C) &=  P(A) + P(B) + P(C)\\
+                          & - P(A\cup B) - P(A\cup C) - P(B\cup C)\\
+			  & + P(A\cup B\cup C)    
+\end{align*}
+\end{slide}
