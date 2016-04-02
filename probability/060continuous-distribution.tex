@@ -1,0 +1,64 @@
+\section{Continuous distributions}
+
+\begin{slide}
+\begin{description}
+\item[Probability Density Function]
+A random vriable $X$ has PDF $f(x)$ if $$P(a\leq X \leq b) = \int_a^bf(x)$$ Also, $f(x)\geq 0$ and $\int_{\infty}^\infty f(x)dx = 1$ 
+\item[Cumilative Destity Funtion]
+$F(x) = P(X\leq x) = \int_{-\infty}^xf(t)dt$
+$$f(x) = \dot{F}(x)$$
+\item[Expectation] $E(x) = \int_{-\infty}^\infty xf(x)dx$
+\item[Variance] $Var(X) = E[X - EX]^2 = EX^2 - (EX)^2$
+\item[LOTUS]\footnote[3]{Law Of The Unconcious Statistician. True even for discrete case} $E(g(X)) = \int_{-\infty}^\infty g(x)f_X(x)dx$
+\end{description}
+
+\footnotetext{$P(X=constant)=0$ bacause its continuous and $\int_a^af(x)dx=0$}
+\footnotetext{$EX^2 \equiv E(X^2)$}
+\end{slide}
+
+
+
+
+
+\begin{slide}[Uniform distribution]
+\begin{shaded}
+{\noindent
+    A random point in an interval
+}
+    $$X \in Unif(a,b)$$
+    $$
+    f_X(x) = {1\over b-a}  
+    \quad 
+    F(x) = {x-a \over b-a}
+    \quad
+    E(X)= {a+b \over 2} 
+    \quad
+    Var(X)= {a+b \over 2} 
+    $$
+\end{shaded}
+
+
+\end{slide}
+
+\begin{slide} [Gaussian/Normal Distribution]
+\begin{shaded}
+    %{\noindent{}definition}
+    $$X \in N(\mu,\sigma)$$
+    $$
+    f_X(x) = {1\over \sigma \sqrt{2\pi}} e^{-{(x-\mu)^2 \over 2\sigma^2}} 
+    \quad
+    E(X)= \mu
+    \quad
+    Var(X)=\sigma^2
+    \quad 
+    F(X) = {1\over 2}\left[1+erf\left({x-\mu \over \sigma\sqrt{2}}\right)\right]
+    $$
+\end{shaded}
+\end{slide}
+
+\begin{slide} [Dirichlet]
+\end{slide}
+\begin{slide} [Beta]
+\end{slide}
+
+

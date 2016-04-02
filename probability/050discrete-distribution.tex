@@ -1,0 +1,71 @@
+\section{Discrete distributions}
+\begin{slide} [Bernoulli Distribution]
+\begin{shaded}
+    {\hfill Distibution of a process with a  success probability $p$\hfill}
+    $$X \in Bern(p)$$
+    $$
+    P(X=1) = p 
+    \quad 
+    E(X)= p
+    \quad
+    Var(X)=pq
+    $$
+\end{shaded}
+    
+    \begin{align*}
+        E[X] &= 1\cdot P(X==1) + 0\cdot P(X==0) =p \\
+        Var[X] &= E[X^2]-E[X]^2 = p-p^2 =p(1-p) = pq
+    \end{align*}
+\end{slide}
+
+\begin{slide} [Binomial Distribution]
+  \begin{shaded}
+ {\hfill\noindent Probability distribution of number of successes in $n$ Bernoulli trials $Bern(p)$
+ \hfill}
+    $$X \in B(n,p)$$
+    $$
+    P(X=k) = {n \choose k} p^k(1-p)^{n-k} 
+    \quad 
+    E(X)=  \sum_iE[X_i] = np
+    \quad
+    Var(X)=npq
+    $$
+\end{shaded}
+ $$   Var[X] = Var\left(\mathbf{\Sigma}_i X_i\right) = \mathbf{\Sigma}_i Var(X_i) = npq$$
+
+\noindent{}
+$X \sim B(n, p)$ and $Y \sim B(m, p)$ are independent binomial variables , $X+Y \sim B(n+m, p)$
+\end{slide}
+
+\begin{slide} [Poisson Distribution]
+  \begin{shaded}
+{\noindent
+Probability of a given number of events occurring in a fixed interval of time and/or space if these events occur with a known average rate and independently of the time since the last event
+}
+    $$X \in Pois(\lambda)$$
+    $$
+    P(X=k) = {e^{-\lambda} \lambda^k \over k!} 
+    \quad 
+    E(X)= \lambda
+    \quad
+    Var(X)= \lambda
+    $$
+  \end{shaded}
+$$E(X) = e^-\lambda\sum_{k=0}^{\infty}k {\lambda^k \over k!}
+ =\lambda e^-\lambda\sum_{k=1}^{\infty}{\lambda^{k-1} \over (k-1)!}
+ = \lambda e^-\lambda e^\lambda
+$$
+\end{slide}
+
+\begin{slide}%maximus}
+Consider the case where $X\in Bin(n,p)$, $n\to \infty$, $p\to 0$ and $\lambda = np$ is held constant. Now what happens to PMF at the limit?
+\begin{align*}
+P(X=k) &= {n \choose k}p^k(1-p)^{n-k}, k is fixed\\
+ &= {n\cdot{}(n-1)\cdots{}(n-k+1) \over k!}   \left({\lambda \over n}\right)^k\left(1-{\lambda \over n}\right)^n\left(1-{\lambda \over n}\right)^{-k}\\
+\lim_{\substack{n\to\infty\\ p\to 0}} P(X=k) &= {n\cdot{}(n-1)\cdots{}(n-k+1)\lambda^k \over k!n^k}\left(1-{\lambda \over n}\right)^n\left(1-{\lambda \over n}\right)^{-k}\\
+&={\lambda^ke^-k \over k!}\\
+\lim_{\substack{n\to\infty\\ p\to 0}} Bin(n,p)&\in Pois(np) 
+\end{align*}
+\end{slide}%maximus}
+
+

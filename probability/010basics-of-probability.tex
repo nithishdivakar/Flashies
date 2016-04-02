@@ -15,3 +15,22 @@ with & $n^k$& \ensuremath{{n+k-1 \choose k}}\\[20pt]
 without&$ \prod _{i=0}^{k-1}n-i$&${n \choose k}$\\\hline
 \end{tabular}
 \end{slide}
+
+
+\begin{slidemaximus}[Some important results]
+\begin{multicols}{2}
+
+
+\begin{description}
+\item[inclusion-exclusion]
+\begin{align*}
+P&\left(\bigcup_{i=1}^{n} A_i\right) =\sum_{\phi\neq J\subseteq\{1,2,\ldots,n\}}\hspace{-20pt} (-1)^{|J|-1}P\left(\bigcup_{j\in J}A_j\right)\\
+  P&(A\cup B\cup C)\\ &=  P(A) + P(B) + P(C)\\
+                           &\quad- P(A\cup B) - P(A\cup C) - P(B\cup C)\\
+			   &\quad+ P(A\cup B\cup C)  
+\end{align*}
+
+\item[compound iterest formula]$$\lim_{n\to\infty}\left(1+{x\over n}\right)^n  \to e^n$$
+\end{description}
+\end{multicols}
+\end{slidemaximus}
