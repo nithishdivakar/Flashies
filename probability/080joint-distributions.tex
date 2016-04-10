@@ -1,0 +1,11 @@
+
+\begin{slide}[Joint Distributions]
+\begin{align*}
+\text{Joint CDF} &&F(x,y) &= P(X\leq x, Y\leq y)\\
+\text{Joint PDF} &&f{X,Y}(x,y) &= {\partial \over \partial x \partial y}F(x,y)\\
+\text{Probability} &&P((x,y)\in A)&=\iint_{A}f(x,y)\partial x\partial y\\
+\text{Marginal PDF} &&f(x) &= \int_{-\infty}^{\infty}f(x)\partial y\\
+\text{Conditional PDF} &&f_{Y|X}(y|x) &= {f_{X,Y}(x,y) \over f_{X}(x)} = {f_{X|Y}(x|y)  f_{Y}(y) \over f_{X}(x)}\\
+\text{Independence if} &&f_{X,Y}(x,y) &= f_{X}(x)f_{Y}(y)
+\end{align*}
+\end{slide}
