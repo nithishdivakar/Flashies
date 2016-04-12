@@ -17,7 +17,6 @@
         Var[X] &= E[X^2]-E[X]^2 = p-p^2 =p(1-p) = pq
     \end{align*}
 \end{slide}
-
 \begin{slide} [Binomial Distribution]
   \begin{shaded}
  {\hfill\noindent Probability distribution of number of successes in $n$ Bernoulli trials $Bern(p)$
@@ -36,6 +35,49 @@
 \noindent{}
 $X \sim B(n, p)$ and $Y \sim B(m, p)$ are independent binomial variables , $X+Y \sim B(n+m, p)$
 \end{slide}
+
+\begin{slidemaximus} 
+\begin{minipage}[t]{0.3\textwidth}
+\par
+\noindent
+\textbf{Geometric}
+\newline
+ {\noindent How many failure before the first success ?\hfill}
+\begin{align*}
+    X &\in Geom(p)\\
+    P(X=k) &= q^kp\\
+    E(X)&= q/p
+\end{align*}
+PMF can be seen as probability of getting $k$ failures followed by a success. 
+\vspace{5cm}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.3\textwidth}
+\par
+\noindent
+\textbf{Negative Binomial}
+\newline
+ {\noindent Number of failures before $r^{th}$ success}
+ \begin{align*}
+    X &\in Neg(r,p)\\
+    P(X=k) &= {k+r-1 \choose r-1}p^r(1-p)^k\\
+    E(X)&= rq/p
+ \end{align*}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.3\textwidth}
+\par
+\noindent
+\textbf{Hyper Geometric}
+ \begin{align*}
+    X &\in Neg(r,p)\\
+    P(X=k) &= {k+r-1 \choose r-1}p^r(1-p)^k\\
+    E(X)&= rq/p
+ \end{align*}
+\end{minipage}
+
+
+\end{slidemaximus}
 
 \begin{slide} [Poisson Distribution]
   \begin{shaded}

@@ -16,10 +16,6 @@ $$f(x) = \dot{F}(x)$$
 \footnotetext{$EX^2 \equiv E(X^2)$}
 \end{slide}
 
-
-
-
-
 \begin{slide}[Uniform distribution]
 \begin{shaded}
 {\noindent
@@ -29,11 +25,11 @@ $$f(x) = \dot{F}(x)$$
     $$
     f_X(x) = {1\over b-a}  
     \quad 
-    F(x) = {x-a \over b-a}
+    F(x)   = {x-a \over b-a}
     \quad
-    E(X)= {a+b \over 2} 
+    E(X)   = {a+b \over 2} 
     \quad
-    Var(X)= {a+b \over 2} 
+    Var(X) = {a+b \over 2} 
     $$
 \end{shaded}
 
@@ -41,24 +37,112 @@ $$f(x) = \dot{F}(x)$$
 \end{slide}
 
 \begin{slide} [Gaussian/Normal Distribution]
-\begin{shaded}
+  \begin{shaded}
     %{\noindent{}definition}
     $$X \in N(\mu,\sigma)$$
     $$
     f_X(x) = {1\over \sigma \sqrt{2\pi}} e^{-{(x-\mu)^2 \over 2\sigma^2}} 
     \quad
-    E(X)= \mu
+    E(X)   = \mu
     \quad
-    Var(X)=\sigma^2
+    Var(X) =\sigma^2
     \quad 
-    F(X) = {1\over 2}\left[1+erf\left({x-\mu \over \sigma\sqrt{2}}\right)\right]
+    F(X)   = {1\over 2}\left[1+erf\left({x-\mu \over \sigma\sqrt{2}}\right)\right]
     $$
+  \end{shaded}
+
+$Var(X+c) = Var(X)$, $Var(cX) = c^2Var(X)$, $Var(X+Y) \neq Var(X) + Var(Y)$
+
+\end{slide}
+
+\begin{slide}[Exponential Distribution]
+ \begin{shaded}
+    %{\noindent{}definition}
+    $$X \in Expo(\lambda)$$
+    $$
+    f_X(x) = \lambda e^{-\lambda x} 
+    \quad
+    E(X)   = {1 \over \lambda}
+    \quad
+    Var(X) = {1 \over \lambda^2}
+    \quad 
+    F(X)   = 1-e^{\lambda x}
+    $$
+  \end{shaded}
+Memoryless property: $P(X\geq s+t|X\geq s) = P(X\geq t)$. amount of time waited doesnt matter. Only exponential is continuous distribution having this property.
+  $Y = \lambda X \implies Y\in Expo(1)$
+
+\end{slide}
+
+
+\begin{slide} [Beta Distribution]
+ \begin{shaded}
+    %{\noindent{}definition}
+    $$X \in Beta(a,b)$$
+    $$
+    f_X(x) = {1\over B(a,b) } x^{a-1}(1-x)^{b-1} 
+    \quad
+    E(X)   = {a\over a+b}
+    \quad
+    Var(X) = {ab\over (a+b)^2(a+b+1)}
+    $$
+    $$ 
+    B(a,b)   = {\Gamma(a)\Gamma(b)\over\Gamma(a+b)}
+    $$
+  \end{shaded}
+Flexible distributions in interval $(0,1)$. Often used as prior for a parameter. 
+Beta is conjugte prior of BErnoulli distribution.
+\end{slide}
+
+\begin{slide}[Gamma Distribution]
+ \begin{shaded}
+    %{\noindent{}definition}
+    $$X \in Gamma(a,\lambda)$$
+    $$
+    f_X(x) = {1 \over \Gamma(\alpha)} \lambda^a x^{a-1}e^{-\lambda x}  
+    \quad
+    E(X)   = {a\over \lambda}
+    \quad
+    Var(X) = {a\over \lambda^2}
+    %\quad 
+    %F(X)   = {}
+    $$
+  \end{shaded}
+Gamma Function
+  \begin{align*}
+\Gamma(a) &= \int_0^\infty x^a e^{-x}{dx\over x}. \text{ for real } a>0
+\\
+\Gamma(n) &=(n-1)!
+\\
+\Gamma(x+1) &= x\Gamma(x)
+\\
+\Gamma\left({1/2}\right) &=  \sqrt{\pi}
+\end{align*}
+\end{slide}
+
+\begin{slide}[Change of variables]
+\noindent{}If $y = h(x)$, then, 
+\begin{shaded}
+  {\huge
+  $$f_X(x) = f_Y(y){dy \over dx}$$
+  }
 \end{shaded}
+\noindent In multidimensional case, ${dy\over dx}$ is jacobian matrix
 \end{slide}
 
-\begin{slide} [Dirichlet]
-\end{slide}
-\begin{slide} [Beta]
-\end{slide}
-
-
+\begin{slidemaximus}
+  \begin{multicols*}{3}
+Beta is conjugate prior to Binomial. If $X|p \in Bin(n,p)$, and lets assume $p \in Beta(a,b)$ (prior), what is $p|X$ (posterior)? 
+\begin{align*}
+f&(p| X=k) 
+\\
+&= {P(X=k|p)f(p) \over P(X=k)} 
+\\
+&= { n\choose k} p^k(1-p)^{n-k} {p^{a-1}(1-p)^{b-1} \over B(a,b) P(X=k)} 
+\\
+&\propto p^{a+k-1}(1-p)^{b+n-k-1}
+\end{align*}
+$p|X \in Beta (a+X,b+n-X)$
+\vfill
+  \end{multicols*}
+\end{slidemaximus}
