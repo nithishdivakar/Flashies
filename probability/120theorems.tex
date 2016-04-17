@@ -1,0 +1,20 @@
+\section{Theorems}
+\begin{slide}[Law of Large numbers]
+Lets $X_1, X_2\ldots$  be i.i.d with mean $\mu$ and variance $\sigma^2$. Let $\bar{X}_n = {1\over n} \sum _{j=1}^{n} X_j$, (Sample mean). Law of large numbers states that $\bar{X}_n \to \mu$ as $n \to \infty$ with probability 1.
+
+Ex. $X_j \in Bern(p)$, then ${X_1+x_2+\ldots+X_n \over n} \to p$ with probability 1
+
+
+Weak form: For any $c>0$, $P(|\bar{X}_n -\mu| >c)\to 0$ as $n\to \infty$. Apply Chebychev for proof.
+
+\end{slide}
+
+\begin{slide}[Central Limit Theorem]
+
+$$CLT: n^{1/2} {(\bar{X}_n -\mu)\over sigma} \to N(0,1)$$ 
+
+$${\sum _{j=1}^{n} X_j -n\mu \over \sqrt{n}\sigma} \to N(0,1)$$
+
+Proof: Assuming MGF  $M(t)$ of $X_j$ exists. We can also assume $\mu = 0 \sigma = 1$
+
+\end{slide}

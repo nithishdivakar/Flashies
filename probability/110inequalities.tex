@@ -1,0 +1,38 @@
+\section{Inequalities}
+\begin{slide}[Cauchy Schwartz]
+
+	$$E(XY) \leq \sqrt{E(X^2)E(Y^2)}$$
+
+if i$X$, $Y$ is uncorrelated, $E(XY) = E(X)E(Y)$
+
+\end{slide}
+ 
+\begin{slide}[Jensen's Inequality]
+
+if $g$ is convex, $$E g(X) \geq g(EX)$$
+
+
+
+
+$$E(\ln X)\leq \ln E(X)$$
+$$E(1/X) \leq 1/E(X)$$
+\end{slide}
+
+\begin{slide}[Markov Inequality]
+
+$$P(|X|\geq a) \leq {E|X| \over a }$$ for any $a > 0$
+
+
+proof:
+
+Note that $a I_{|X|\geq a} \leq |X|$ is always true. So taking expectation on both sides gives markovs inequality.
+
+\end{slide}
+
+\begin{slide}[Chebyshev inequality]
+
+$$P(|X -\mu| > a) \leq {Var X \over a^2}$$
+
+$P(|X-u| >cSD(X) \leq 1/c^2$
+
+\end{slide}
