@@ -1,0 +1,17 @@
+\begin{slide}[Regularization]
+  \begin{description}
+     \item[Why?] To reduce over fitting and under fitting. To encourage model to prefer a simple function that explains data over complex funtion.
+   \item[How?] Add extra term in cost function called regularizers which penalises model if it is overfitting/underfitting
+  \end{description}
+ $$  E(\theta) = Cost(x,y) + \explain{\lambda}{\text{contirbution}} Regularizer(\theta)$$
+
+  Example Regularisers:
+  \begin{description}
+    \item[lasso or $\ell_1$:] $\|\theta\|_1$
+    \item[ridge or $\ell_2$:] $\|\theta\|_2$
+    \item[elastic net:] $\alpha\explain{\|\theta\|_1}{sparsity} +(1-\alpha)\explain{\|\theta\|_2^2}{smoothness}$
+
+  \end{description}
+
+
+\end{slide}

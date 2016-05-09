@@ -183,3 +183,8 @@ TSWLatexianTemp*
 #swap files
 *.swp
 *.~
+*.4ct
+*.idv
+*.lg
+*.tmp
+*.xref

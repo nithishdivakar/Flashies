@@ -1,0 +1,29 @@
+\begin{slide}[Linear regression]
+	$$X=[x_1|x_2|\ldots|x_n], Y=[y_1,y_2,\ldots,y_n]^T$$
+	We will asusme the data can be explained by a linear model $aX+b$, where $\Theta=\{a,b\}$ is the model parameters.
+	\footnotetext{The model is called linear because it is linear in parameter. But it may as well be polynomial in data. For example, if the data has only one parmeter $t$, we can fit a quadratic polyomial by setting $(x_{11},x_{12}) = (t_1,t_1^2)$, consider $x_i$ as features of actual data.}
+	The error function is the difference in the predicted value and actual value 
+	$$E(\Theta) =\|Y - aX+b\|_2^2 \qquad \ell_2error$$
+
+	\begin{shaded}
+		$$ \text{Linear Regression: } \mathop{\mathrm{arg\,min}}_{\Theta}E(\Theta) =  \|Y - (aX+b)\|^2$$
+		\hfill {\tiny gradient descend to find minmum}
+	\end{shaded}
+\end{slide}
+\begin{slide}[Analytical Solution to  Linear regression]
+The linear model described in the previous slide can be seen as $\theta^TX$ if we assume our features are $x = [x_0=1,x_1,x_2,\ldots,x_n]^T$. 
+
+If the error measure used is $\ell_2$ norm, then the solution or optimum parameters has a closed form.
+$$\theta  = (X^TX)^{-1}X^Ty$$
+This solution is derived from normal equations.
+
+Derivation:
+
+\begin{align*}
+	E(\theta) &= \|Y - \theta^TX\|^2\\
+	{\partial \over \partial \theta}E(\theta) &= -2(y-\theta^TX)X \implies
+	y = \theta^TX \qquad\text{at minimum}
+\end{align*}
+\footnotetext{Inverse calculation is costly, hence the gradient descent is still prefered when no of datpoints are large}
+\footnotetext{$X^TX$ might be no invertible. Duplicate features}
+\end{slide}

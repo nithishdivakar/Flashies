@@ -1,0 +1,21 @@
+\begin{slide}[Logistic Regression]
+	\begin{description}
+		\item[Q] How to use Linear regression for classification(predict probabilities)? $\Pr(y=1|x;\theta)$
+		\item[Ans] Let construct a linear regression model for $\log{p(x)\over 1-p(x)}$ instead of $p(x)$.
+		\item[Hence] Logistic regression give us a linear classifier, but now we are regressing probabilities of being in a class.
+	\end{description}
+	\footnotetext{$\log{p \over 1-p}$ is called logit function}
+	
+	The new model is given by  $$\sigma(\theta^TX)$$ where $\sigma(z) = {1\over 1+e^{-z}}$, is the sigmoid/logistic function.
+\end{slide}
+
+\begin{slide}[Logistic Regression...]
+	Since the model predicts probabilities, we can fit it using likelyhood rather than distance metrics. The likeleyhood term is given by
+	$$L(\theta) = \prod_i p(x_i)^{y_i}(1-p(x_i)^{1-y_i}$$
+	this gives log-likelyhood to be
+	$$\ell(\theta) = \sum_iy_i\log p(x_i) + (1-y_i) \log 1-p(x_i)$$
+	
+	\begin{description}\item[cross entropy loss function] $Cost(x,y) = -y\log(x) -(1-y)\log(1-x)$\end{description}
+
+	\footnotetext{Ref. \url{http://www.stat.cmu.edu/~cshalizi/uADA/12/lectures/ch12.pdf}}
+\end{slide}
