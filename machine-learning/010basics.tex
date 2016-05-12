@@ -1,15 +1,37 @@
 \begin{slide}[Basics]
-	$$x:~patterns \qquad y:~labels \qquad \Theta:~parameters$$
-	\begin{multicols}{2}
-		\subsubsection*{Supervised learning}
-			$$P(y|x;\theta)$$
-			predict label given a pattern.
-		\subsubsection*{Unsupervised learning}
-			$$P(x,y |\theta) \qquad or \qquad P(x;\theta)  $$
-			learn the p.d.f of the data
-	\end{multicols}
-	reinforcement learning, recommender systems
+  $$x:~patterns \qquad y:~labels \qquad \Theta:~parameters$$
+  \begin{multicols}{2}
+    \subsubsection*{Supervised learning}
+      $$P(y|x;\theta)$$
+      predict label given a pattern.
+    \subsubsection*{Unsupervised learning}
+      $$P(x,y |\theta) \qquad or \qquad P(x;\theta)  $$
+      learn the p.d.f of the data
+  \end{multicols}
+  reinforcement learning, recommender systems
 \end{slide}
 \begin{slide}[Gradient Descent]
+  \begin{description}
+    \item[defn.]Gradient Descent is a first order optimizaiton algorithm. 
+    \item[Intuition] Direction of gradient of a function is the direction of maximum increase. So moving opposit to it will decrease the function.
+  \end{description}
+  $$x_{n+1} = x_n - \explain{\alpha_n}{learning~rate} \nabla F(x_n)$$
 
+\end{slide}
+\begin{slide}[Stocastic Gradient Descent]
+  If the objective function is of the form $L(\theta) = \sum_iL_i(\theta)$ and we need to compute $\mathop{\mathrm{arg\,min}}_\theta L(\theta)$.
+  \footnotetext{This type of objective function is motivated by loss of the model is the sum of losses of its performance on each training example}
+  
+  
+  The normal gradient descent would do
+  $$\theta \gets \theta - \alpha \nabla L(\theta) = \theta-\alpha\sum_i\nabla L_i(\theta)$$
+  but in SGD, the true gradient of $L(\theta)$ is approximated by a gradient of a single example.
+  $$\theta \gets \theta - \alpha\nabla L_i(\theta)$$
+
+  SGD with momentum
+  \begin{align*}
+   \grad \theta &= \alpha \nabla L_i(\theta) + p \explain{\grad \theta}{previsou update}
+   \\
+   \theta&\gets \theta -\grad \theta
+  \end{align*}
 \end{slide}
