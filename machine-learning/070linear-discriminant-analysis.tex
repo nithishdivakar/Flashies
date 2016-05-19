@@ -1,0 +1,39 @@
+\section{Plugin classifiers}
+\begin{slidemaximus}[Linear Discriminant Analysis]
+\begin{multicols}{3}
+Consider a binary classification problem. Class conditional desity is given by
+\begin{align*}
+	&\Pr(x|y)
+	\\
+	&= \explain{{\exp\left(-{1\over2} (x-\mu_y)^T\Sigma_y^{-1}(x-\mu_y)\right)\over (2\pi)^{d/2}|\Sigma_y|^{1/2}}}{\text{multivariate normal density}}
+\end{align*}
+$$\explain{\mu_y}{conditional\\mean} \qquad\qquad \explain{\Sigma_y}{conditional\\covariance}$$
+Then using bayes rule, we have
+\begin{align*}
+	\Pr&(y=1|x) 
+	\\
+	&={\Pr(x|y=1)\Pr(y=1)\over \left[\begin{array}{c}\Pr(x|y=1)\Pr(y=1)\\+\\ \Pr(x|y=-1)\Pr(y=-1)\end{array}\right]}
+\end{align*}
+This gives us a simple classifier 
+\begin{align*}
+	&\text{sign}\left[\Pr(y=1|x)>{1\over 2}\right]
+	\\
+	&=\text{sign}\left(\begin{array}{c}\ln\left({\Pr(x|y=1)\over Pr(x|y=-1)}\right)\\-\\\ln\left({\Pr(y=-1)\over \Pr(y=1)}\right)\end{array}\right)
+	\\
+	&=\text{sign}(xAx^T+b^Tx+c)
+\end{align*}
+$A,b,c$ are function of $\mu_1,\mu_{-1},\Sigma_1,\Sigma_{-1}, P(y=1)$ etc. In practice, however, these quantities are unknown and all that is available is trainnig samples $S=((x_1,y_1), \ldots, (x_m,y_m))$
+
+A natural approach to estimate parameters is maximum likeleyhood estimation which gives
+\begin{align*}
+	\mu_y &= {1\over m_y}\sum_{i:y_i=y} x_i
+	\\
+	\Sigma_y &= {1\over m_y}\sum_{i:y_i=y}(x_i-\mu_y)(x_i-\mu_y)^T
+	\\
+	\Pr&(y=1) = {m_1\over m}
+\end{align*}
+\end{multicols}
+Plugging these values into the classifier equation(Note $A=0$) gives us a model which can classify new data.
+This classifier is called \textbf{Linear Discriminant analysis(LDA)} classifier
+\footnotetext{\textbf{Mulivariate normal assumption of classes $\implies$ LDA classifier}}
+\end{slidemaximus}
