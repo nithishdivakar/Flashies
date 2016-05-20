@@ -1,0 +1,75 @@
+\section{Quasi Newton methods}
+\begin{slide}[Classic Newton's method]
+	Assume have a function $f(x)$ which is atleast twice differentiable at a point $x_k$. Let $q$ be function which is approximation of $f$ that agrees with it till second derivative.
+	\begin{align*}
+	q(x) &= \explain{f(x_k) + f'(x_k)(x-x_k) + {1\over 2} f''(x_k)(x-x_k)^2}{\text{From taylor series expansion}}
+	\\
+	\left.{\partial q(x) \over \partial x}\right|_{x=x^*} &= f'(x_k) + (x^*-x_k)f''(x_k) = 0
+	\qquad\min q(x) \implies \partial q(x) = 0
+	\\
+	x^* &= x_k-{f'(x_k)\over f''(x_k)}
+	\end{align*}
+	In higher dimention this iteration is given by
+	\begin{shaded}
+	$$x_{n+1} = x_n - [H(x)]^{-1}\nabla f(x_n)$$
+	\end{shaded}
+	Where $H$ is the hessian matrix
+	\footnotetext{For quadratic funcitons, newtonmethod gives optimum answer in one iteration}
+\end{slide}
+
+\begin{slide}[Quasi Newton's methods]
+	\begin{align*}
+		&&x_{k+1} &= x_{k} - \explain{\alpha_k}{step\\size}S_k\nabla f(x_k)^T
+		\\
+		&\text{steepest descend}&
+		S_k &= I 
+		\\
+		&\text{classical newtons method}&
+		S_k &= [H(x_k)]^{-1}
+		\\
+		&\text{Davidon-Fletcher-Powel method}&
+		S_k &= H_{k+1} = H_k + {p_kp_k^T\over p_k^Tq_k} -{H_kq_kq_k^TH_k \over q_k^TH_kq_k}
+		\\
+		&\text{Broyden-Fletcher-Goldfard-Shanno method}&
+		S_k &= H_{k+1} = H_k 
+			\begin{array}{l}
+				\displaystyle 
+				+ \left({1+q_k^TH_kq_k\over q_k^Tq_k}\right){p_kp_k^T\over p_k^Tq_k}
+				\\
+				\displaystyle 
+				-{p_kq_k^TH_k+H_kq_kq_k^T \over q_k^Tp_k}
+			\end{array}
+	\end{align*}
+Where $p_k = x_{k+1} - x_k$ and $q_k = \nabla f(x_{k+1}) - \nabla f(x_k)$
+\end{slide}
+\begin{slide}[Rank-one Update method]
+	Let $p_k = x_{k+1} - x_k$ and $q_k = \nabla f(x_{k+1}) - \nabla f(x_k)$. This gives us
+	\begin{align}
+		q_k = \explain{F}{Hessian}p_k\label{eqn:dfp1}
+	\end{align}
+	Lets impose the constraint that all the approximation to the inverse of hessian constructed during the iterative scheme is  SPD. Under the assumption that the hessian doesnt change much between iteration, lets assume a rank one update formula for inverse hessian aproximation
+	
+	\begin{align}
+	H_{k+1} &= H_k + a_kz_kz_k^T\label{eqn:dfp2} 
+	\\
+	p  &= Hq+azz^Tq    & z&= {p - Hq \over az^Tq}
+	\\
+	q^Tp  &= q^THq+aq^Tzz^Tq &  a(z^Tq)^2 &=q^Tp -q^T Hq
+	\\
+	H_{k+1} &= H+ a {(p-Hq)(p-Hq)^T\over a^2(z^T q)^2} 
+	\\
+	H_{k+1}&= H + {(p-Hq)(p-Hq)^T \over q^T(p-Hq)}
+	\end{align}
+\end{slide}
+\begin{slide}[DFP, BFGS and Broyden family]
+DFP is a rank two update algorithm where the $H_{k+1}$ is approximated as a rank two update from $H_k$. Following a very similar form of derivation we get,
+$$H^{DFP}_{k+1} = H_k + {p_kp_k^T\over p_k^Tq_k} -{H_kq_kq_k^TH_k \over q_k^TH_kq_k}$$
+
+The method used to derive approximation to the inverse of hessian can also be used to derive approximation to the hessian itself. The formula has a dual nature to the DFP formula with $q\longleftrightarrow p$. From this, the inverse of hessian is found using sherman-morrison formula\footnote{$(A+uv^T)^-1 = A^{-1} -{A^{-1}uv^TA^{-1}\over 1+v^tA^{-1}u}$}  and eventually we have an inverse hessian approximate as
+$$H^{BFGS}_{k+1} = H_k 
+				+ \left({1+q_k^TH_kq_k\over q_k^Tq_k}\right){p_kp_k^T\over p_k^Tq_k}
+				-{p_kq_k^TH_k+H_kq_kq_k^T \over q_k^Tp_k}$$
+Broyden family of methods uses the following update
+$$^\alpha  = (1-\alpha) H^{DFP} + \alpha H^{BFGS}$$
+\end{slide}
+
