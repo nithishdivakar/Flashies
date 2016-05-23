@@ -3,11 +3,11 @@
 \begin{slide}
 \begin{description}
 \item[Probability Density Function]
-A random vriable $X$ has PDF $f(x)$ if $$P(a\leq X \leq b) = \int_a^bf(x)$$ Also, $f(x)\geq 0$ and $\int_{\infty}^\infty f(x)dx = 1$ 
-\item[Cumilative Destity Funtion]
-$F(x) = P(X\leq x) = \int_{-\infty}^xf(t)dt$
+A random vriable $X$ has PDF $f(x)$ if $$P(a\leq X \leq b) = \int_a^bf(x)\,dx$$ Also, $f(x)\geq 0$ and $\int_{\infty}^\infty f(x)dx = 1$ 
+\item[Cumulative Density Function]
+$F(x) = P(X\leq x) = \int\limits_{-\infty}^xf(t)dt$
 $$f(x) = \dot{F}(x)$$
-\item[Expectation] $E(x) = \int_{-\infty}^\infty xf(x)dx$
+\item[Expectation] $E(X) = \int_{-\infty}^\infty xf_X(x)dx$
 \item[Variance] $Var(X) = E[X - EX]^2 = EX^2 - (EX)^2$
 \item[LOTUS]\footnote[3]{Law Of The Unconcious Statistician. True even for discrete case} $E(g(X)) = \int_{-\infty}^\infty g(x)f_X(x)dx$
 \end{description}
@@ -18,9 +18,9 @@ $$f(x) = \dot{F}(x)$$
 
 \begin{slide}[Uniform distribution]
 \begin{shaded}
-{\noindent
-    A random point in an interval
-}
+	\begin{center}
+		A random point in an interval
+	\end{center}
     $$X \in Unif(a,b)$$
     $$
     f_X(x) = {1\over b-a}  
@@ -32,11 +32,9 @@ $$f(x) = \dot{F}(x)$$
     Var(X) = {a+b \over 2} 
     $$
 \end{shaded}
-
-
 \end{slide}
 
-\begin{slide} [Gaussian/Normal Distribution]
+\begin{slide} [Normal Distribution]
   \begin{shaded}
     %{\noindent{}definition}
     $$X \in N(\mu,\sigma)$$
@@ -130,8 +128,8 @@ Gamma Function
 \noindent In multidimensional case, ${dy\over dx}$ is jacobian matrix
 \end{slide}
 
-\begin{slidemaximus}
-  \begin{multicols*}{3}
+\begin{slide}%maximus}
+  %\begin{multicols*}{3}
 Beta is conjugate prior to Binomial. If $X|p \in Bin(n,p)$, and lets assume $p \in Beta(a,b)$ (prior), what is $p|X$ (posterior)? 
 \begin{align*}
 f&(p| X=k) 
@@ -143,6 +141,6 @@ f&(p| X=k)
 &\propto p^{a+k-1}(1-p)^{b+n-k-1}
 \end{align*}
 $p|X \in Beta (a+X,b+n-X)$
-\vfill
-  \end{multicols*}
-\end{slidemaximus}
+%\vfill
+  %\end{multicols*}
+\end{slide}%maximus}

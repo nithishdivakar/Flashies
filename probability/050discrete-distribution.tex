@@ -37,44 +37,23 @@ $X \sim B(n, p)$ and $Y \sim B(m, p)$ are independent binomial variables , $X+Y 
 \end{slide}
 
 \begin{slidemaximus} 
-\begin{minipage}[t]{0.3\textwidth}
-\par
-\noindent
-\textbf{Geometric}
-\newline
- {\noindent How many failure before the first success ?\hfill}
+\begin{multicols}{2}
+\begin{description}
+\item[Geometric] How many failure before the first success ?
 \begin{align*}
     X &\in Geom(p)\\
     P(X=k) &= q^kp\\
     E(X)&= q/p
 \end{align*}
 PMF can be seen as probability of getting $k$ failures followed by a success. 
-\vspace{5cm}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.3\textwidth}
-\par
-\noindent
-\textbf{Negative Binomial}
-\newline
- {\noindent Number of failures before $r^{th}$ success}
+\item[Negative Binomial] How many failures before $r^{th}$ success
  \begin{align*}
     X &\in Neg(r,p)\\
     P(X=k) &= {k+r-1 \choose r-1}p^r(1-p)^k\\
     E(X)&= rq/p
  \end{align*}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.3\textwidth}
-\par
-\noindent
-\textbf{Hyper Geometric}
- \begin{align*}
-    X &\in Neg(r,p)\\
-    P(X=k) &= {k+r-1 \choose r-1}p^r(1-p)^k\\
-    E(X)&= rq/p
- \end{align*}
-\end{minipage}
+\end{description}
+\end{multicols}
 
 
 \end{slidemaximus}
@@ -93,13 +72,15 @@ Probability of a given number of events occurring in a fixed interval of time an
     Var(X)= \lambda
     $$
   \end{shaded}
-$$E(X) = e^-\lambda\sum_{k=0}^{\infty}k {\lambda^k \over k!}
- =\lambda e^-\lambda\sum_{k=1}^{\infty}{\lambda^{k-1} \over (k-1)!}
- = \lambda e^-\lambda e^\lambda
-$$
+\begin{align*}
+E(X) &= e^{-\lambda}\sum_{k=0}^{\infty}k {\lambda^k \over k!}
+\\
+ &=\lambda e^{-\lambda}\sum_{k=1}^{\infty}{\lambda^{k-1} \over (k-1)!}
+ = \lambda e^{-\lambda} e^\lambda
+\end{align*}
 \end{slide}
 
-\begin{slide}%maximus}
+\begin{slide}
 Consider the case where $X\in Bin(n,p)$, $n\to \infty$, $p\to 0$ and $\lambda = np$ is held constant. Now what happens to PMF at the limit?
 \begin{align*}
 P(X=k) &= {n \choose k}p^k(1-p)^{n-k}, k is fixed\\
@@ -108,6 +89,4 @@ P(X=k) &= {n \choose k}p^k(1-p)^{n-k}, k is fixed\\
 &={\lambda^ke^-k \over k!}\\
 \lim_{\substack{n\to\infty\\ p\to 0}} Bin(n,p)&\in Pois(np) 
 \end{align*}
-\end{slide}%maximus}
-
-
+\end{slide}

@@ -10,13 +10,13 @@ Line search methods are distinguished  based on how step 2 are implemented: Exac
 \end{slide}
 
 \begin{slide}[Exact Line Search]
-\begin{list}{}{\setlength\labelwidth{0cm}}
-\item \textbf{Line Search by interval shrinking}
+\begin{list}{$\mathbf \circ$}{\setlength\labelwidth{0cm}}
+\item[\textbf{Line Search by interval shrinking}]
 	Given an interval $[a,b]$, find which interval has minimum $[a,a+\tau(b-a)]$ or $[b-\tau(b-a),b]$
 	\item Bisection method: $\tau = 1/2$
 	\item Fibonacci search: $\tau = {F_{k-1}/F_k}$.
 	\item Golden Section: $\tau = {1-\sqrt{5} \over 2}$
-\item \textbf{Line search by curve fitting}
+\item[{\bfseries Line search by curve fitting}]
 	Fit a curve to the function and then find the minimum point of the curve.
 	\item Newtons method: Fit a quadratic curve. Need $f(x_k)$, $f'(x_k)$, and $f''(x_k)$
 	\item Method of False position: Use $f'(x_{k-1}) - f'(x_k) \approx f''(x_k)$
@@ -25,7 +25,7 @@ Line search methods are distinguished  based on how step 2 are implemented: Exac
 \end{list}
 \end{slide}
 \begin{slide}[Inexact Line-search]
-	TEst which ensure an selected step size is ok!
+	Test which ensure an selected step size is ok!
 
 	Define $\phi(\alpha) = f(x_k +\alpha d_k)$
 
