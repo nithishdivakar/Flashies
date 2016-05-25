@@ -1,0 +1,59 @@
+\section{Matrix Decompositions}
+
+\def\moo#1{\emph{#1}}
+\begin{slide}[LU Decomposition]
+   $$PA =LU$$
+   \moo{Applicable to}: square matrices
+   \moo{How}: $A = L_i^{-1}\hat{A}$
+   \moo{Cost}: $2n^3/3$ FLOPS
+\end{slide}
+\begin{slide}[ Cholesky Decomposition]
+   $A = LL^*$
+   \moo{Applicable to}: Hermitian\footnote{$A=A^T$} positive definite matrices. 
+   \moo{Cost}: $n^3/3$ FLOPS
+   \moo{Comments}: $L$ has real positive diagonal entries. Unique when $A$ is positive definite. Non unique when $A$ is semi definite.
+\end{slide}
+\begin{slide}[ QR decomposition]
+   $ A = Q R$
+   \moo{Applicable to}: Any $m\times n$ matrix
+   \moo{How}: Gram-Schmidt process, Householder's reflections
+   \moo{Comment}: $Q_{m\times m}$ is orthogonal matrix\footnote{Orthogonal $\implies Q^TQ=I$}, $R$ is upper triangular
+   \moo{Cost}:
+\end{slide}
+\begin{slide}[ Eigen Decomposition]
+   $A = VDV^{-1} $
+   \moo{Applicable to}: Square matrix $A$ with distinct eigen vectors. not necessarily distinct eigen values.
+   \moo{How}: 
+   \moo{Cost}:
+   \moo{Comment} Also called Spectral Decomposition. $D$ is diagonal matrix having eigen values of $A$. $V$ has columns with corrresponding eigen vectors. $V$ if exists, is orthogonal.
+\end{slide}
+\begin{slide}[ Schur Decomposition]
+   $ A = UTU^{*}$
+   \moo{Applicable to}: Square matrices
+   \moo{How}: 
+   \moo{Cost}:
+   \moo{Comment} $U$ is unitary, $T$ is upper triangular
+\end{slide}
+\begin{slide}[ SVD]
+   $ $
+   \moo{Applicable to}:
+   \moo{How}: 
+   \moo{Cost}:
+\end{slide}
+\begin{slide}[ Polar decomposition]
+   $ $
+   \moo{Applicable to}:
+   \moo{How}: 
+   \moo{Cost}:
+\end{slide}
+
+\begin{slide}
+  Also called spectral decomposition
+  Applicable to: square matrix A with distinct eigenvectors (not necessarily distinct eigenvalues).
+  Decomposition: $A=VDV^{-1}$, where D is a diagonal matrix formed from the eigenvalues of A, and the columns of V are the corresponding eigenvectors of A.
+  Existence: An n-by-n matrix A always has n eigenvalues, which can be ordered (in more than one way) to form an n-by-n diagonal matrix D and a corresponding matrix of nonzero columns V that satisfies the eigenvalue equation AV=VD. If the n eigenvectors (not necessarily eigenvalues) are distinct (that is, none is equal to any of the others), then V is invertible, implying the decomposition $A=VDV^{-1}$.[2]
+  Comment: One can always normalize the eigenvectors to have length one (see definition of the eigenvalue equation). If A is real-symmetric, V is always invertible and can be made to have normalized columns. Then the equation $VV^T=I$ holds, because each eigenvector is orthogonal to the other. Therefore, the decomposition (which always exists if A is real-symmetric) reads as: $A=VDV^T$
+  Comment: The condition of having n distinct eigenvalues is sufficient but not necessary. The necessary and sufficient condition is for each eigenvalue to have geometric multiplicity equal to its algebraic multiplicity.
+  Comment: The eigendecomposition is useful for understanding the solution of a system of linear ordinary differential equations or linear difference equations. For example, the difference equation $x_{t+1}=Ax_t$ starting from the initial condition $x_0=c$ is solved by $x_t = A^tc$, which is equivalent to $x_t = VD^tV^{-1}c$, where V and D are the matrices formed from the eigenvectors and eigenvalues of A. Since D is diagonal, raising it to power $D^t$, just involves raising each element on the diagonal to the power t. This is much easier to do and to understand than raising A to power t, since A is usually not diagonal.
+
+\end{slide}
