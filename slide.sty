@@ -63,17 +63,16 @@
 
 \renewcommand{\part}[1]{
     \addcontentsline{toc}{part}{\thepart~#1}
-    \clearpage
-    \vspace*{\fill}
-    \begin{center}
-    \textsc{Part~}\thepart\\
-      \begin{shaded}
-        \vspace{20pt}
-        \Huge\textsc{#1}
-        \vspace{20pt}
-      \end{shaded}
-    \end{center}
-    \vfill
+    \begin{slide}
+      \begin{center}
+        \textsc{Part~}\thepart\\
+        \begin{shaded}
+          \vspace{20pt}
+          \Huge\textsc{#1}
+          \vspace{20pt}
+        \end{shaded}
+      \end{center}
+    \end{slide}
     \addtocounter{part}{1}
     \setcounter{section}{1}
 }
@@ -81,12 +80,11 @@
 \renewcommand{\section}[1]{
   \addcontentsline{toc}{section}{\thesection~#1}
   \addtocounter{section}{1}
-  \clearpage
-  \vspace*{\fill}
-  \begin{center}
-    \Huge\textsc{#1}
-  \end{center}
-  \vfill
+  \begin{slide}
+    \begin{center}
+      \Huge\textsc{#1}
+    \end{center}
+  \end{slide}
 }
 
 
