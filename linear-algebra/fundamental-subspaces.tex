@@ -1,0 +1,44 @@
+\section{Linear maps}
+\begin{slide}[Linear maps fundamental subspaces]
+Consider a Linear map $\mathcal{L}$ from $V \mapsto W$.
+It is trivial that $\mathcal{L}(0)=0$. But $0\in V$ is not the only vector which gets mapped to $0$. Consider the set,
+$$S = \{x: x\in V \,and\, \mathcal{L}(x) = {0}\}$$
+This set forms a vector space which is a subspace of $V$ and is called the Kernel or \textbf{null space} of the map $\mathcal{L}$
+$$\operatorname{Null} \mathcal{L} = \operatorname{ker} \mathcal{L} = \{x: \mathcal{L}(x)=0\}$$
+Now, image of the map
+$$\operatorname{Im} \mathcal{L} = \{\mathcal{L}(x): x\in V\}\subseteq W$$
+\footnotetext{Diferential map of polynomial to polynomial, the null space is set of constant functions.}
+
+Matrices can be considered as linear maps from real/complex space to real and/or complex space. 
+
+\textbf{Rank Nullity theorem}
+$$\operatorname{dim} V = \operatorname{dim}(\operatorname{Null} T) + \operatorname {dim}  (\operatorname{Im} T)$$
+\end{slide}
+
+\begin{slide}[Matrix and Linear maps]
+A matrix in $\mathbb{E}^{m\times n}$ can be considered as a Linear map from $\mathbb{E}^{m} \to \mathbb{E}^{n}$. So from the linear map anology we have, 
+\begin{align*}
+	\operatorname{Null} A &= \{x: Ax = 0\}
+	\\
+	\operatorname{Im}A & = \{b: Ax=b\}
+\end{align*}
+We can see that $\operatorname{\mathbf{ Im}} \mathbf{A}$  \textbf{is a set of all linear combinations of columns of A}. Hence it is also called column space of A or $\operatorname{Col}(A)$.
+We can also consider another related linear map from $\mathbb{E}^{n} \to \mathbb{E}^{m}$ defined by matrix $A^T$. 
+$$\operatorname{Col}A^T = \operatorname{Row}A$$
+\begin{multicols}{2}
+\textbf{Rank Nullity Theorem}
+$$rank~A+ nullity~A = n$$
+Rank is the dimension of column space of $A$ and nullity is dimension of null space of $A$
+
+\begin{align*}
+Ax=0 &\implies \langle x,\text{row of }A\rangle = 0 
+\\
+&\implies x \bot \operatorname{Row} A
+\\
+\operatorname{Row} A &\bot \operatorname{Null} A
+\\
+\operatorname{Col} A &\bot \operatorname{Null} A^T
+\end{align*}
+
+\end{multicols}
+\end{slide}

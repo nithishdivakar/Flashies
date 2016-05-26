@@ -3,22 +3,87 @@
 \def\moo#1{\emph{#1}}
 \begin{slide}[LU Decomposition]
    $$PA =LU$$
-   \moo{Applicable to}: square matrices
-   \moo{How}: $A = L_i^{-1}\hat{A}$
-   \moo{Cost}: $2n^3/3$ FLOPS
+   \begin{description}
+     \item [Applicable to] Square matrices. Can also be used for rectangular ones, but rarely done so in practice
+   \item[How]: Works by introducing $0$s below the $k^{th}$ diagonal in $k^{th}$ step. Let $x_k$ denote the $k{th}$ column.
+   \item[Cost] $2n^3/3$ FLOPS
+	\begin{multicols}{2}
+	\begin{align*}
+	L_k &= I-l_ke_k^T
+	\\
+	L_k^{-1} &= I+l_ke_k^T
+	\\
+	A_k &= L_kA_{k-1}
+	\\
+	L &= L_1^{-1}L_2^{-1}\cdots L_m^{-1}
+	\end{align*}
+	$$l_k = \left[ 
+	\begin{array}{c}
+	0
+	\\
+	\cfrac{x_{k+1,k}}{ x_{k,k}} 
+	\\
+	\vdots 
+	\\
+	\cfrac{x_{n,k}}{x_{k,k}}
+	\end{array}
+	\right]^T	
+	\quad
+	e_k = \left[ 
+	\begin{array}{c}
+	0
+	\\
+	\vdots
+	\\
+	0
+	\\
+	1
+	\\
+	\vdots 
+	\\
+	0
+	\end{array}
+	\right]^T
+	$$
+\end{multicols}
+   \end{description}
 \end{slide}
 \begin{slide}[ Cholesky Decomposition]
-   $A = LL^*$
-   \moo{Applicable to}: Hermitian\footnote{$A=A^T$} positive definite matrices. 
-   \moo{Cost}: $n^3/3$ FLOPS
-   \moo{Comments}: $L$ has real positive diagonal entries. Unique when $A$ is positive definite. Non unique when $A$ is semi definite.
+   $$A = LL^*$$
+   \begin{description}
+   \item[Applicable to]: Hermitian\footnote{$A=A^T$} positive definite matrices. 
+   \item[Cost]: $n^3/3$ FLOPS. Half of LU
+   \item[Comments]: $L$ is lower triangular matrix has real positive diagonal entries. Unique when $A$ is positive definite. Non unique when $A$ is semi definite. Mainly used to solve System of linear equations, linear least square equation($A^TA=LL^T$)
+   \item[How] 
+   $$
+   \begin{bmatrix} 
+   a & w^{*}\\
+   w&K
+   \end{bmatrix}
+   =
+   \begin{bmatrix} 
+   \sqrt{a} & 0\\
+   w/\sqrt{a}&I
+   \end{bmatrix}
+   \begin{bmatrix} 
+   1 & 0\\
+   0&K-ww^{*}/\sqrt{a}
+   \end{bmatrix}
+   \begin{bmatrix} 
+   \sqrt{a} & w^{*}/\sqrt{a}\\
+   0&I
+   \end{bmatrix}
+   $$
+   \end{description}
 \end{slide}
 \begin{slide}[ QR decomposition]
-   $ A = Q R$
-   \moo{Applicable to}: Any $m\times n$ matrix
-   \moo{How}: Gram-Schmidt process, Householder's reflections
-   \moo{Comment}: $Q_{m\times m}$ is orthogonal matrix\footnote{Orthogonal $\implies Q^TQ=I$}, $R$ is upper triangular
-   \moo{Cost}:
+   $$ A = Q R$$
+   \begin{description}
+   \item[Applicable to]: Any $m\times n$ matrix
+   \item[How] Gram-Schmidt process, Householder's reflections
+   \item[Comment] $Q_{m\times m}$ is orthogonal matrix\footnote{Orthogonal $\implies Q^TQ=I$}, $R$ is upper triangular. Often used to solve linear least square problems.
+   \item[Cost]
+   \end{description}
 \end{slide}
 \begin{slide}[ Eigen Decomposition]
    $A = VDV^{-1} $
@@ -26,13 +91,6 @@
    \moo{How}: 
    \moo{Cost}:
    \moo{Comment} Also called Spectral Decomposition. $D$ is diagonal matrix having eigen values of $A$. $V$ has columns with corrresponding eigen vectors. $V$ if exists, is orthogonal.
-\end{slide}
-\begin{slide}[ Schur Decomposition]
-   $ A = UTU^{*}$
-   \moo{Applicable to}: Square matrices
-   \moo{How}: 
-   \moo{Cost}:
-   \moo{Comment} $U$ is unitary, $T$ is upper triangular
 \end{slide}
 \begin{slide}[ SVD]
    $ $
@@ -45,6 +103,13 @@
    \moo{Applicable to}:
    \moo{How}: 
    \moo{Cost}:
+\end{slide}
+\begin{slide}[ Schur Decomposition]
+   $ A = UTU^{*}$
+   \moo{Applicable to}: Square matrices
+   \moo{How}: 
+   \moo{Cost}:
+   \moo{Comment} $U$ is unitary, $T$ is upper triangular
 \end{slide}
 
 \begin{slide}
