@@ -1,7 +1,47 @@
 \section{Descent methods}
-\begin{slide}[Gradient Descent]
-	General rule of update is $x_{k+1} = x_k +\alpha d_k$. But given  point 
-	$x_k$, 
+\begin{slidemaximus}[Steepest Descent]
+	\begin{description}
+	\item[The method]
+	$x_{k+1} = x_k - \alpha_kg_k$
+	Where $g_k = \nabla f(x_k)^T$
+
+	\item[Why the direction of negative of gradient ?]
+	First order approximation of $f$ is given by
+	\begin{align*}
+		f(x-d) &= f(x) + \nabla f(x) d\quad \text{from taylor series}
+		\\
+		f(x-d) - f(x) &= \nabla f(x) d = \|\nabla f(x)\|\|d\|\cos \theta
+	\end{align*}
+	The difference is maximum when $\cos \theta = 0$ and hence moving in direction of gradient maximises the function.
+	\item[Rate of convergence] Consider a quadratic problem $f(x) = {1\over 2} x^TQx -x^Tb$ where $Q$ is SPD and hence have all positive real eigen values. The convergence ratio for steepest descent for this problem is  
+	$$\left(A-a\over A+a\right)^2 = \left(r-1\over r+1 \right)^2$$ 
+	Where $A,a$ is the \emph{largest,smallest} eigen value of $Q$ and $r = {A\over a}$ is the \textbf{condition number} of $Q$. Large difference between eigen values implies large condition number implies slow convergence.
+	\end{description}
+\end{slidemaximus}
+
+\begin{slide}[Conjugate Gradient method]
+Assume the problem requires us to minimize $f(x) = {1\over 2}x^TQx-x^Tb$, where $Q$ is symmetric positive definite. The solution to this problem is also a solution to the linear equation $Qx=b$
+
+We say two non-zero vectors are conjugate w.r.to $Q$ if $u^TQ=\langle u,v\rangle_Q=0$. Suppose we have $\{p_1,\ldots,p_n\}$ conjugate vectors. They form basis of $\mathbb{R}^n$. Then we have
+\begin{align*}
+x^{*}-x_0 &= \sum \alpha_ip_i
+%\\
+\implies 
+p_k^TQ(x^{*}-x_0) = \sum \alpha_i p_k^TQp_i = \alpha_kp_k^TQp_k
+\\
+\alpha_k &= {p_k^TQ(x^{*}-x_0)  \over \langle p_k,p_k\rangle_{Q}}
+= {p_k^TQ(x^{*}-x_k)  \over \langle p_k,p_k\rangle_{Q}}=-{g_k^Tp_k\over \langle p_k,p_k\rangle_{Q} }\qquad p_k^TQ(x_k-x_0)=0
+\end{align*}
+where $g_k = Qx_k-b$This implies a method of solution which is (1). Find $n$ conjugate directions (2) compute $\{\alpha_k\}$ (3) Compute solution.
+Conjugate gradient mathod
+\begin{align*}
+x_{k+1} &= x_k + \alpha_kp_k
+\\
+p_k &= r_k-\sum_{i<k}{\langle p_i,r_k\rangle_Q  \over \langle p_i,p_i\rangle_{Q}}
+\\
+r_k &= b-Qx_k\qquad  x_0 = 0
+\end{align*}
 \end{slide}
-\begin{slide}[Conjugate Gradient Descent]
+\begin{slide}[Expanding Subspace Theorem]
+
 \end{slide}

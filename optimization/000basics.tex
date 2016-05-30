@@ -8,3 +8,16 @@
 			$$J = \left({\partial f_i \over \partial x_j}\right)$$
 	\end{description}
 \end{slide}
+\begin{slide}[Unconstrained optimization]
+A typical optimisation problems are of nature $\min\limits_{x\in \Omega} f(x)$ where $\Omega$ is the constrain set. When the constrained set is $\mathbb{E}^n$, we say the problem is unconstrained as the values of $x$ are no longer restricted.
+\begin{description}
+	\item[First order necesssary condition] A point $x^{*}$ is relative minimum point of $f$ and if $x^*$ is reltive interior point of $\Omega$, then 
+	$$\nabla f(x^*) = 0$$
+	\item[Second order necessary condition]
+		Hessian matrix is positive semi definite
+	\item[Second order sufficient condition] Hessian is positive definite.
+\end{description}
+From taylor series, we have $f(x^*+\alpha d) - f(x^*) = \alpha \nabla f (x^*) d$. For $x^*$ to be ralative minimum, $\nabla f(x^*) d \geq 0$. This is actual \textbf{1st order necessary} condition. Since every $d$ is feasible for unconstrained case, we have $\nabla f(x^*) = 0$.
+
+\quad Also from taylor series, $f(x^*+\alpha d) - f(x^*) = \alpha \nabla f (x^*) d + {1\over 2} \alpha^2 d^T\nabla^2f(x^*)d$. So when $\nabla f(x^*) d = 0$, then $d^T\nabla^2f(x^*)d \geq 0$ or hessian must be positive semi definite. The is \textbf{second order necessary} condition. For a strict minumum, the inequality must strict inequality and hence hessian must be positive definite and hence \textbf{second order sufficient} condition.
+\end{slide}

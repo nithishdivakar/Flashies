@@ -1,0 +1,35 @@
+\def \lpstd#1#2#3#4{
+% {variable}{objective}{constraint set notation}{contraint set def}
+\begin{align*}
+&\min\limits_{#1 \in #3} #2
+\\
+#3& = \{#1|~#4\}
+\end{align*}
+}
+\section{Linear programming}
+\begin{slide}
+Linear programming problem in standard form.
+\lpstd{x}{c^Tx}{\Omega}{\explain{Ax=b}{equality} ~\text{and}~ \explain{x\geq 0}{inequality}}
+$A \in \mathbb{R}^{m\times n}$ and is assumed to be full rank with $m\leq n$
+\footnote{rank deficient A implies contradictory constraints(no solution) or redundant constraint(that can be elliminated)}
+$a_i$ is $i^{th}$ column of $A$
+\begin{description}
+	\item[Basic solution]  Let $J\subseteq \{1,\ldots,n\}$ be an index set containnig exactly $m$ elements. 
+	$$basic solution = \{x | Ax=b \text{ and } x_{i\in J}=0 \text{ and } \{a_i\}_{i\in J}\ \text{is linearly independent}\}$$
+	\item[Degenerate basic solution] is a basic solution in which one or more of the $m$ components corresponding to linearly independent set is $0$
+	\item[Feasible solution] a solution which satisfies both the constraints $Ax=b$ and $x\geq 0$
+	\item[Basic feasible solution] basic and feasible solution. Degenerate basic feasible solution ?
+\end{description}
+\end{slide}
+
+\begin{slide}[Fundamental Theorem of Linear programming]
+	\emph{Theorem:} The maxima and minima of a linear function ofer a convex polygonal region occurs at regions corners or allover line/face joining corner(s).
+
+	\emph{Proof:} If optimum point $x^*$ occurs in interior, then the ball $B_\epsilon(x^*)$ is inside the region for some small $\epsilon$. 
+	$$c^T\left(x^*-\epsilon {c\over \|c\|}\right) = c^Tx^*-\epsilon\|c\|< c^Tx^*\qquad contradiction!!$$
+
+	The application of this theorem is in the fact that all corner points of a convex polygonal region formed by the constraints of the linear program are \textbf{basic  feasible solutions} and there are only finitely many. $n \choose m$ at most.
+
+
+All the corner point of the polytope formed by the equality constraints are basic solutions. But those which also satisfy positivity constraints are feasible as well. But if one r more of the ineqality constriant(s) is active($=0$) at the point, then the point is degenerate.
+\end{slide}
