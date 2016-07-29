@@ -1,5 +1,3 @@
-# Flashies
-Flashcards for studying
-
-[![PDF Status](https://www.sharelatex.com/github/repos/nithishdivakar/Flashies/builds/latest/badge.svg)](https://www.sharelatex.com/github/repos/nithishdivakar/Flashies/builds/latest/output.pdf)
-
+# NotesBook
+Repository of all my notes.
+Caution! A work under progress. May have lots of errors and incomplete stuff.
