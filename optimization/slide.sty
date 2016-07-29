@@ -1,0 +1,122 @@
+%This file is part of the git repo  LaTeX and 
+%is probably hard linked to this repo. Make 
+%sure any changes made to it is  reflected 
+%there as well
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{slide}[2016/03/14 My custom slide class]
+
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{geometry}
+\RequirePackage{lipsum}
+\RequirePackage{tikz}
+\RequirePackage{framed}
+\RequirePackage{mathtools}
+\RequirePackage{hyperref}
+\geometry{
+  paper=a5paper,
+  landscape
+}
+
+\definecolor{shadecolor}{rgb}{0.9,0.9,0.9}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+%\renewcommand{\contentsname}{}
+
+%%%%
+%make vertical offset of ``ocntents'' go away
+\makeatletter
+\def\@makechapterhead#1{%
+  \vspace*{0\p@}%vertical offset
+    {\parindent \z@ \raggedright \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+          \large \bfseries \@chapapp\space \thechapter
+          \par\nobreak
+          \vskip 0\p@
+        \fi
+    \fi
+    \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    \vskip 0\p@
+  }}
+  \def\@makeschapterhead#1{%
+    \vspace*{0\p@}%vertical offset
+  {\parindent \z@ \raggedright
+      \normalfont
+      \interlinepenalty\@M
+      \large \bfseries  #1\par\nobreak
+      \vskip 0\p@
+    }}
+\makeatother
+%%%%%
+
+
+
+
+
+
+
+\setcounter{part}{1}
+
+\renewcommand{\thesection}{\arabic{section}}
+
+\renewcommand{\part}[1]{
+    \addcontentsline{toc}{part}{\thepart~#1}
+    \begin{slide}
+      \begin{center}
+        \textsc{Part~}\thepart\\
+        \begin{shaded}
+          \vspace{20pt}
+          \Huge\textsc{#1}
+          \vspace{20pt}
+        \end{shaded}
+      \end{center}
+    \end{slide}
+    \addtocounter{part}{1}
+    \setcounter{section}{1}
+}
+
+\renewcommand{\section}[1]{
+  \addcontentsline{toc}{section}{\thesection~#1}
+  \addtocounter{section}{1}
+  \begin{slide}
+    \begin{center}
+      \Huge\textsc{#1}
+    \end{center}
+  \end{slide}
+}
+
+
+
+\newcommand{\slideheading}[1]{
+{{\flushleft\Huge\textsc{#1}}}\hfill \break}%\par\noindent{}}
+
+
+
+\newenvironment{slidebase}[2][]{
+  \clearpage
+  \newgeometry{left=#2,bottom=#2,top=#2,right=#2}
+  \if\relax\detokenize{#1}\relax
+
+  \else
+    \addcontentsline{toc}{subsection}{#1}
+    \noindent{}
+    \slideheading{#1}
+  \fi
+  \vspace*{\fill}%
+  \par\noindent{}%
+}{
+  \vfill
+  \restoregeometry
+}
+
+
+\newenvironment{slide}[1][]
+{\begin{slidebase}[#1]{2cm} }
+{\end{slidebase}}
+
+
+\newenvironment{slidemaximus}[1][]
+{\begin{slidebase}[#1]{0.5cm} }
+{\end{slidebase}}

@@ -1,7 +1,15 @@
-pdf: flashy.tex
-	latexmk -pdf -pvc -f flashy.tex
+SUBDIRS = linear-algebra machine-learning optimization probability
+CLEANDIRS = $(SUBDIRS)
+CLEANDIRS = $(SUBDIRS:%=clean-%)
+subdirs: $(SUBDIRS)
 
-dvi: flashy.tex
-	latexmk -pvc -f flashy.tex
+$(SUBDIRS):
+	$(MAKE) -C $@
 
+clean: $(CLEANDIRS)
 
+$(CLEANDIRS): 
+	$(MAKE) -C $(@:clean-%=%) clean
+
+.PHONY: subdirs $(SUBDIRS)
+.PHONY: clean

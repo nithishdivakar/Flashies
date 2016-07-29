@@ -1,0 +1,39 @@
+\documentclass[12pt,oneside]{book}
+\usepackage{slide}
+\usepackage{multicol}
+\input{mymacros}
+
+\begin{document}
+\pagestyle{empty}
+\begin{multicols}{2}
+  \tableofcontents
+\end{multicols}
+\part{Machine Learning}
+\section{Machine Learning Algorithms}
+
+\input{010basics.tex}
+\input{020linear-regression.tex}
+\input{030logistic-regression.tex}
+\input{040regularization.tex}
+\input{050support-vector-machines.tex}
+\input{060neural-networks.tex}
+\input{070linear-discriminant-analysis.tex}
+
+
+
+
+
+
+
+
+%\input{machine-learning/boltzman-machines.tex}
+%\input{machine-learning/graphical-models.tex}
+%\input{machine-learning/rbm-variants.tex}
+
+\newpage
+TODO
+\begin{description}
+\item EM Algorithm
+\item EM Algorithm
+\end{description}
+\end{document}
