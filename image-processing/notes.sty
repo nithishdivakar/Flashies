@@ -1,0 +1,53 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{notes}[2014/08/24 Example LaTeX package]
+
+\RequirePackage[textwidth=1cm]{todonotes}
+\setlength{\marginparwidth}{1cm}
+
+\RequirePackage[mathspacing=normal,margins=normal]{savetrees}
+%tight pagess
+%no spacing between lists
+%etc etc
+
+
+\RequirePackage{geometry}
+\geometry{a5paper,landscape,right=1.5cm,top=2cm,bottom=2cm,left=1.5cm} % easier to read on kindle
+
+
+\RequirePackage{amssymb,amsmath}
+
+%title and things
+\def\subject#1{\def\thesubject{#1}}
+\title{\thesubject}
+%%
+
+%header footer
+\RequirePackage{fancyhdr}
+\RequirePackage{lastpage}
+\renewcommand{\headrulewidth}{0.1pt}
+\renewcommand{\footrulewidth}{0.1pt}
+\pagestyle{fancy}
+
+\rfoot{\vspace{1pt}Page \thepage\ of \pageref{LastPage}}
+\cfoot{}
+\lfoot{}
+\rhead{\thesubject}
+\lhead{\nouppercase{\leftmark}\textbar\nouppercase{\rightmark}}
+\chead{}
+
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+
+%%
+%%
+
+%\RequirePackage{multicol}
+%\RequirePackage{titletoc}
+%%title page
+%\makeatletter
+%\def\maketitle{
+%\@title
+%\@author
+%\@date
+%}
+%\makeatother

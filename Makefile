@@ -1,4 +1,5 @@
-SUBDIRS = linear-algebra machine-learning optimization probability
+SUBDIRS = linear-algebra machine-learning optimization probability image-processing
+
 CLEANDIRS = $(SUBDIRS)
 CLEANDIRS = $(SUBDIRS:%=clean-%)
 subdirs: $(SUBDIRS)
