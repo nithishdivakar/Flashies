@@ -1,17 +1,23 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{notes}[2014/08/24 Example LaTeX package]
 
-\RequirePackage[textwidth=1cm]{todonotes}
-\setlength{\marginparwidth}{1cm}
+\RequirePackage[
+	textwidth=2cm,
+	backgroundcolor=white,
+	linecolor=black,
+	bordercolor=white
+]{todonotes}
+\setlength{\marginparwidth}{2cm}
 
 \RequirePackage[mathspacing=normal,margins=normal]{savetrees}
+\RequirePackage{eulervm}
 %tight pagess
 %no spacing between lists
 %etc etc
 
 
 \RequirePackage{geometry}
-\geometry{a5paper,landscape,right=1.5cm,top=2cm,bottom=2cm,left=1.5cm} % easier to read on kindle
+\geometry{a5paper,landscape,right=2.5cm,top=2cm,bottom=2cm,left=2.5cm} % easier to read on kindle
 
 
 \RequirePackage{amssymb,amsmath}
@@ -24,6 +30,7 @@
 %header footer
 \RequirePackage{fancyhdr}
 \RequirePackage{lastpage}
+\renewcommand{\chaptername}{Lecture}
 \renewcommand{\headrulewidth}{0.1pt}
 \renewcommand{\footrulewidth}{0.1pt}
 \pagestyle{fancy}
